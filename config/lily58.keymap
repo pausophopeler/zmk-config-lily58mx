@@ -26,6 +26,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp LSHFT>, <&to base_th>;
         };
+
         td_lshft_th: tap_dance_lshift_thai {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -48,11 +49,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC        &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6  &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
-&kp TAB        &kp Q   &kp W   &kp E     &kp R     &kp T                          &kp Y   &kp U     &kp I      &kp O    &kp P     &kp MINUS
-&kp LCTRL      &kp A   &kp S   &kp D     &kp F     &kp G                          &kp H   &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&td_lshft_en   &kp Z   &kp X   &kp C     &kp V     &kp B   &kp LBKT     &kp RBKT  &kp N   &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                               &kp LALT  &kp LGUI  &mo lower_layer   &kp SPACE    &kp RET   &mo raise_layer   &kp BSPC  &kp RGUI
+&kp ESC       &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                  &kp N6           &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
+&kp TAB       &kp Q   &kp W   &kp E     &kp R     &kp T                                   &kp Y            &kp U     &kp I      &kp O    &kp P     &kp MINUS
+&kp LCTRL     &kp A   &kp S   &kp D     &kp F     &kp G                                   &kp H            &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
+&td_lshft_en  &kp Z   &kp X   &kp C     &kp V     &kp B            &kp LBKT     &kp RBKT  &kp N            &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                              &kp LALT  &kp LGUI  &mo lower_layer  &kp SPACE    &kp RET   &mo raise_layer  &kp BSPC  &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -69,11 +70,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC       &kp TH_THAI_LAKKHANGYAO   &kp TH_SLASH              &kp TH_MINUS            &kp TH_THAI_PHO_SAMPHAO  &kp TH_THAI_THO_THUNG                                   &kp TH_THAI_SARA_U       &kp TH_THAI_SARA_UE      &kp TH_THAI_KHO_KHWAI  &kp TH_THAI_TO_TAO           &kp TH_THAI_CHO_CHAN          &kp GRAVE
-&kp TAB       &kp TH_THAI_MAIYAMOK      &kp TH_THAI_SARA_AI_MAIMALAI  &kp TH_THAI_SARA_AM  &kp TH_THAI_PHO_PHAN     &kp TH_THAI_SARA_A                                      &kp TH_THAI_MAI_HAN_AKAT &kp TH_THAI_SARA_II      &kp TH_THAI_RO_RUA     &kp TH_THAI_NO_NU            &kp TH_THAI_YO_YAK           &kp TH_THAI_KHO_KHAI
-&kp LCTRL     &kp TH_THAI_FO_FAN        &kp TH_THAI_HO_HIP        &kp TH_THAI_KO_KAI      &kp TH_THAI_DO_DEK       &kp TH_THAI_SARA_E                                      &kp TH_THAI_MAI_THO      &kp TH_THAI_MAI_EK       &kp TH_THAI_SARA_AA    &kp TH_THAI_SO_SUA           &kp TH_THAI_WO_WAEN          &kp TH_THAI_NGO_NGU
-&td_lshft_th  &kp TH_THAI_PHO_PHUNG     &kp TH_THAI_PO_PLA        &kp TH_THAI_SARA_AE     &kp TH_THAI_O_ANG        &kp TH_THAI_SARA_I   &kp TH_THAI_BO_BAIMAI    &kp TH_THAI_LO_LING   &kp TH_THAI_SARA_UEE  &kp TH_THAI_THO_THAHAN  &kp TH_THAI_MO_MA  &kp TH_THAI_SARA_AI_MAIMUAN  &kp TH_THAI_FO_FA  &kp RSHFT
-                                         &kp LALT                  &kp LGUI                &mo lower_layer          &kp SPACE            &kp RET                  &mo raise_layer       &kp BSPC              &kp RGUI
+&kp ESC       &kp TH_THAI_LAKKHANGYAO  &kp TH_SLASH                  &kp TH_MINUS         &kp TH_THAI_PHO_SAMPHAO  &kp TH_THAI_THO_THUNG                                                &kp TH_THAI_SARA_U        &kp TH_THAI_SARA_UE     &kp TH_THAI_KHO_KHWAI  &kp TH_THAI_TO_TAO           &kp TH_THAI_CHO_CHAN  &kp GRAVE
+&kp TAB       &kp TH_THAI_MAIYAMOK     &kp TH_THAI_SARA_AI_MAIMALAI  &kp TH_THAI_SARA_AM  &kp TH_THAI_PHO_PHAN     &kp TH_THAI_SARA_A                                                   &kp TH_THAI_MAI_HAN_AKAT  &kp TH_THAI_SARA_II     &kp TH_THAI_RO_RUA     &kp TH_THAI_NO_NU            &kp TH_THAI_YO_YAK    &kp TH_THAI_KHO_KHAI
+&kp LCTRL     &kp TH_THAI_FO_FAN       &kp TH_THAI_HO_HIP            &kp TH_THAI_KO_KAI   &kp TH_THAI_DO_DEK       &kp TH_THAI_SARA_E                                                   &kp TH_THAI_MAI_THO       &kp TH_THAI_MAI_EK      &kp TH_THAI_SARA_AA    &kp TH_THAI_SO_SUA           &kp TH_THAI_WO_WAEN   &kp TH_THAI_NGO_NGU
+&td_lshft_th  &kp TH_THAI_PHO_PHUNG    &kp TH_THAI_PO_PLA            &kp TH_THAI_SARA_AE  &kp TH_THAI_O_ANG        &kp TH_THAI_SARA_I     &kp TH_THAI_BO_BAIMAI    &kp TH_THAI_LO_LING  &kp TH_THAI_SARA_UEE      &kp TH_THAI_THO_THAHAN  &kp TH_THAI_MO_MA      &kp TH_THAI_SARA_AI_MAIMUAN  &kp TH_THAI_FO_FA     &kp RSHFT
+                                                                     &kp LALT             &kp LGUI                 &mo lower_layer        &kp SPACE                &kp RET              &mo raise_layer           &kp BSPC                &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -90,7 +91,7 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR_ALL  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &studio_unlock  &trans     &trans     &trans    &trans    &trans
+&bt BT_CLR_ALL  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &studio_unlock  &trans     &trans     &trans    &trans    &caps_word
 &kp F1          &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7          &kp F8     &kp F9     &kp F10   &kp F11   &kp F12
 &kp GRAVE       &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR    &kp PRCNT                       &kp CARET       &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp TILDE
 &trans          &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans          &kp MINUS  &kp PLUS   &kp LBRC  &kp RBRC  &kp PIPE
@@ -111,11 +112,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&caps_word  &trans  &trans  &trans   &trans   &trans                     &trans       &trans     &trans     &trans    &trans     &trans
-&kp GRAVE   &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
-&kp F1      &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
-&kp F7      &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                            &trans   &trans   &trans   &trans    &trans  &trans       &trans     &trans
+&trans     &trans  &trans  &trans   &trans   &trans                     &trans       &trans     &trans     &trans    &trans     &trans
+&kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
+&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
+&kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
+                           &trans   &trans   &trans   &trans    &trans  &trans       &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -123,7 +124,6 @@
 
         adjust_layer {
             display-name = "Adjust";
-
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
@@ -137,7 +137,6 @@
 
         extra_layer {
             display-name = "Extra";
-
             bindings = <
 &trans  &trans          &trans          &trans           &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
