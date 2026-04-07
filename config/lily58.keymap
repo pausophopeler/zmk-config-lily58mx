@@ -31,6 +31,20 @@
             tapping-term-ms = <200>;
             bindings = <&kp RBKT>, <&kp LG(V)>;
         };
+
+        new_line_below: new_line_below {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(RIGHT)>, <&kp RET>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
     };
 
     keymap {
@@ -101,12 +115,20 @@
 
         adjust_layer {
             display-name = "Adjust";
+
+            // ------------------------------------------------------------------------------------------------------------
+            // |       |     |     |      |      |      |                   | NL↓  | MSCTL | LOCK  | EMOJI |       |       |
+            // |       |     |     |      |      |      |                   |      |       |       |       |       |       |
+            // |       |     |     |      |      |      |                   |      |       |       |       |       |       |
+            // |       |     |     |      |      |      |        |  |       |      |       |       |       |       |       |
+            //                     |      |      |      |        |  |       |      |       |       |
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &new_line_below  &kp LC(UP)  &kp LG(LC(Q))  &kp LC(LG(SPACE))  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans      &trans         &trans             &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans           &trans      &trans         &trans             &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans           &trans      &trans         &trans             &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans           &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
