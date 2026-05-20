@@ -120,14 +120,14 @@
             // |       | BTCLR|     |      |      |      |                   | NL↓  | MSCTL | LOCK  | EMOJI |  ESC  | SPOT |
             // | BT_NXT|BT_PRV| CAPS|      |      |      |                   |PTAB  | NTAB  | NEWTB | CLOSE |REOPEN | ADDR |
             // |       |     |     | ZMOUT|      |      |                   |      |       | ZMIN  |       |       |      |
-            // |       |     |     |      |      |      |        |  |       |      |       |       |       |       |      |
+            // |       |     |     |      |      |      | EXTRA  |  |       |      |       |       |       |       |      |
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
 &trans     &bt BT_CLR_ALL  &trans      &trans              &trans  &trans                    &new_line_below    &kp LC(UP)        &kp LG(LC(Q))      &kp LC(LG(SPACE))  &kp ESC        &kp LG(SPACE)
 &bt BT_NXT &bt BT_PRV      &caps_word  &trans              &trans  &trans                    &kp LS(LC(TAB))    &kp LC(TAB)       &kp LG(T)          &kp LG(W)          &kp LS(LG(T))  &kp LG(L)
 &trans     &trans          &trans      &kp LG(LS(MINUS))  &trans  &trans                    &trans             &trans            &kp LG(LS(EQUAL))  &trans             &trans         &trans
-&trans     &trans          &trans      &trans              &trans  &trans  &trans    &trans  &trans             &trans            &trans             &trans             &trans         &trans
+&trans     &trans          &trans      &trans              &trans  &trans  &tog extra_layer    &trans  &trans             &trans            &trans             &trans             &trans         &trans
                            &trans      &trans              &trans  &trans  &trans    &trans             &trans            &trans
             >;
 
