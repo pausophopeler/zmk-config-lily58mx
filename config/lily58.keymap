@@ -95,19 +95,21 @@
         raise_layer {
             display-name = "Raise";
 
+            // Navigation cluster (right side) — same column = same direction, further from home = bigger scope:
+            // Col:       [outer]   [ ← ]    [ ↓ ]    [ ↑ ]    [ → ]  [edit]
             // ------------------------------------------------------------------------------------------------------------
-            // | ⌘←   | ⌥←  | ⌥↓  |  ⌥↑  |  ⌥→  | ⌘→   |                   |      | ⇧⌥←  | ⇧⌥↓  | ⇧⌥↑  | ⇧⌥→  |^SPACE |
-            // | MUTE  |BRI- |BRI+ | PREV | PLAY | NEXT |                   |VOL-  | VOL+  | PGUP  | PGDN  |       |       |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   | ⇧⌘←  |   ←   |   ↓   |  ↑   |  →    | ⇧⌘→  |
-            // |   F7  |  F8 |  F9 | F10  | F11  | F12  |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-            //                     |      |      |      |        |  |       |      |  DEL  |       |
+            // |       |      |      |      |      |      |                   |       | ⇧⌥←  |       |       | ⇧⌥→  |^SPC  |
+            // | MUTE  | BRI- | BRI+ | PREV | PLAY | NEXT |                   |       |  ⌥←  | PGDN  | PGUP  |  ⌥→  |BSPC  |
+            // |   F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                   |  ⇧⌘← |   ←  |   ↓   |   ↑   |   →  | ⇧⌘→  |
+            // |   F7  |  F8  |  F9  | F10  | F11  | F12  |        |  |       |       |  ⌘←  |  ⌘↓   |  ⌘↑   |  ⌘→  | DEL  |
+            //                       |      |      |      |        |  |       |       | DEL  |       |
 
             bindings = <
-&kp LG(LEFT)  &kp LA(LEFT)  &kp LA(DOWN)  &kp LA(UP)  &kp LA(RIGHT)  &kp LG(RIGHT)              &trans            &kp LS(LA(LEFT))  &kp LS(LA(DOWN))  &kp LS(LA(UP))  &kp LS(LA(RIGHT))  &kp LC(SPACE)
-&kp C_MUTE    &kp C_BRI_DN  &kp C_BRI_UP  &kp C_PREV  &kp C_PP       &kp C_NEXT                  &kp C_VOL_DN      &kp C_VOL_UP      &kp PG_UP         &kp PG_DN       &trans             &trans
-&kp F1        &kp F2        &kp F3        &kp F4      &kp F5         &kp F6                      &kp LS(LG(LEFT))  &kp LEFT          &kp DOWN          &kp UP          &kp RIGHT          &kp LS(LG(RIGHT))
-&kp F7        &kp F8        &kp F9        &kp F10     &kp F11        &kp F12  &trans    &trans   &kp KP_PLUS       &kp MINUS         &kp EQUAL         &kp LBKT        &kp RBKT           &kp BSLH
-                                          &trans      &trans         &trans   &trans    &trans   &kp DEL           &trans            &trans
+&trans      &trans        &trans        &trans      &trans    &trans                      &trans            &kp LS(LA(LEFT))  &trans       &trans      &kp LS(LA(RIGHT))  &kp LC(SPACE)
+&kp C_MUTE  &kp C_BRI_DN  &kp C_BRI_UP  &kp C_PREV  &kp C_PP  &kp C_NEXT                  &trans            &kp LA(LEFT)      &kp PG_DN    &kp PG_UP   &kp LA(RIGHT)      &kp BSPC
+&kp F1      &kp F2        &kp F3        &kp F4      &kp F5    &kp F6                      &kp LS(LG(LEFT))  &kp LEFT          &kp DOWN     &kp UP      &kp RIGHT          &kp LS(LG(RIGHT))
+&kp F7      &kp F8        &kp F9        &kp F10     &kp F11   &kp F12  &trans    &trans   &trans            &kp LG(LEFT)      &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT)      &kp DEL
+                                        &trans      &trans    &trans   &trans    &trans   &kp DEL           &trans            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
