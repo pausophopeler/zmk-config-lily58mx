@@ -14,8 +14,8 @@
 #define lower_layer 1
 #define raise_layer 2
 #define adjust_layer 3
-#define extra_layer 4
-#define f_layer 5
+#define f_layer 4
+#define extra_layer 5
 
 / {
     behaviors {
