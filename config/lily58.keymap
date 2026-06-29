@@ -45,6 +45,30 @@
             #binding-cells = <0>;
             bindings = <&kp LG(RIGHT)>, <&kp RET>;
         };
+
+        hrm: hrm {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        hyper_meh: hyper_meh {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LC(LA(LGUI)))>, <&kp LS(LC(LALT))>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        td_slash_caps: td_slash_caps {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp FSLH>, <&kp CAPS>;
+        };
     };
 
     conditional_layers {
@@ -69,11 +93,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | BSPC | RAISE | GUI   |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                          &kp N6          &kp N7    &kp N8     &kp N9   &kp N0    &kp GRAVE
-&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                           &kp Y           &kp U     &kp I      &kp O    &kp P     &kp MINUS
-&kp LCTRL  &kp A   &kp S   &kp D     &lt f_layer F  &kp G                                           &kp H           &kp J     &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z   &kp X   &kp C     &kp V     &kp B            &td_lbkt_copy  &td_rbkt_paste  &kp N           &kp M     &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                            &kp LALT  &kp LGUI  &mo lower_layer  &kp SPACE      &kp RET         &kp BSPC        &mo raise_layer  &kp RGUI
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                                              &kp N6   &kp N7         &kp N8         &kp N9        &kp N0           &kp BSPC
+&kp TAB    &kp Q   &kp W   &kp E     &kp R     &kp T                                               &kp Y    &kp U          &kp I          &kp O         &kp P            &kp MINUS
+&kp LCTRL  &hrm LCTRL A  &hrm LALT S  &hrm LGUI D  &hrm LSHFT F  &kp G                          &kp H    &hrm RSHFT J   &hrm RGUI K    &hrm RALT L   &hrm RCTRL SEMI  &kp SQT
+&kp LSHFT  &kp Z   &kp X   &kp C     &kp V     &kp B            &lt f_layer LBKT  &td_rbkt_paste  &kp N    &kp M          &kp COMMA      &kp DOT       &td_slash_caps   &kp RSHFT
+                            &kp LALT  &kp LGUI  &mo lower_layer  &kp SPACE      &kp RET            &mo raise_layer  &kp LGUI  &hyper_meh
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -90,7 +114,7 @@
             //                     |      |      |      |        |  |        |      |  DEL  |       |
 
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &studio_unlock  &trans   &trans  &trans  &caps_word  &eq_plus
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &studio_unlock  &trans   &trans  &trans  &caps_word  &kp DEL
 &kp LPAR  &kp RPAR    &kp LBRC      &kp RBRC       &kp LBKT      &kp RBKT                        &kp F7          &kp N7   &kp N8  &kp N9  &kp F11     &kp F12
 &kp GRAVE &kp EXCL    &kp AT        &kp HASH       &kp DOLLAR    &kp PRCNT                       &kp CARET       &kp N4   &kp N5  &kp N6  &kp LC(LA(LG(COMMA)))  &kp TILDE
 &trans    &kp EQUAL   &kp KP_PLUS   &kp MINUS      &kp BSLH      &kp LS(F1)    &trans    &trans  &kp N0          &kp N1   &kp N2  &kp N3  &kp LC(LA(LG(M)))      &kp PIPE
@@ -113,7 +137,7 @@
             //                       |      |      |      |        |  |       |       | DEL  |       |
 
             bindings = <
-&trans      &kp C_BRI_DN  &kp C_BRI_UP  &trans      &trans    &trans                      &trans            &kp LS(LA(LEFT))  &trans       &trans      &kp LS(LA(RIGHT))  &kp LC(SPACE)
+&trans      &kp C_BRI_DN  &kp C_BRI_UP  &trans      &trans    &trans                      &trans            &kp LS(LA(LEFT))  &trans       &trans      &kp LS(LA(RIGHT))  &kp DEL
 &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_PP  &kp C_NEXT                  &trans            &kp LA(LEFT)      &kp PG_DN    &kp PG_UP   &kp LA(RIGHT)      &kp DEL
 &kp F1      &kp F2        &kp F3        &kp F4      &kp F5    &kp F6                      &kp LS(LG(LEFT))  &kp LEFT          &kp DOWN     &kp UP      &kp RIGHT          &kp LS(LG(RIGHT))
 &kp F7      &kp F8        &kp F9        &kp F10     &kp F11   &kp F12  &trans    &trans   &trans            &kp LG(LEFT)      &kp LG(DOWN) &kp LG(UP)  &kp LG(RIGHT)      &kp BSPC
@@ -145,21 +169,21 @@
         };
 
         f_layer {
-            display-name = "F-Nav";
+            display-name = "G Layer";
 
-            // Navigation grid — hold F to activate, columns 7-0 only
-            // Key:  [7]            [8]          [9]          [0]
-            // Num:  ⇧⌘←             ↑            ↓           ⇧⌘→
-            // 2nd:  ⇧⌥←            ⇧⌥↑          ⇧⌥↓          ⇧⌥→
-            // 3rd:  ⌥←              ⌥↑           ⌥↓           ⌥→
-            // Bot:  ⌘←              ⌘↓           ⌘↑           ⌘→
+            // G_layer ported from Toucan — hold F to activate
+            // Q-row left:   ⇧⌘←  ↑  ↓  ⇧⌘→
+            // Q-row right:  ⇧⌥←  ⇧⌥→  ⌘⇧V(mac plain)  ⌘⌥⇧V(mac match)
+            // Home left:    sel-row  del-row  ins-excel  [F=held]  INS
+            // Home right:   ⌥←  ⌥→  ⌃⇧V(win plain)  ⌃⌥V(win special)
+            // Bot right:    ⌘←  ⌘→
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp LS(LG(LEFT))   &kp UP          &kp DOWN        &kp LS(LG(RIGHT))   &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp LS(LA(LEFT))   &kp LS(LA(UP))  &kp LS(LA(DOWN))  &kp LS(LA(RIGHT)) &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &kp LA(LEFT)       &kp LA(UP)      &kp LA(DOWN)    &kp LA(RIGHT)       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans  &kp LG(LEFT)       &kp LG(DOWN)    &kp LG(UP)      &kp LG(RIGHT)       &trans
-                        &trans  &trans  &trans  &trans   &trans   &trans  &trans              &trans
+&trans  &trans              &trans           &trans           &trans              &trans                    &trans            &trans             &trans            &trans              &trans  &trans
+&trans  &kp LS(LG(LEFT))   &kp UP           &kp DOWN         &kp LS(LG(RIGHT))   &trans                    &kp LS(LA(LEFT))  &kp LS(LA(RIGHT))  &kp LG(LS(V))     &kp LG(LA(LS(V)))   &trans  &trans
+&trans  &kp LS(SPACE)       &kp LC(KP_MINUS) &kp LC(KP_PLUS)  &trans              &kp INS                   &kp LA(LEFT)      &kp LA(RIGHT)      &kp LC(LS(V))     &kp LC(LA(V))       &trans  &trans
+&trans  &trans              &trans           &trans           &trans              &trans  &trans   &trans   &kp LG(LEFT)      &kp LG(RIGHT)      &trans            &trans              &trans  &trans
+                            &trans           &trans           &trans              &trans  &trans   &trans   &trans            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
